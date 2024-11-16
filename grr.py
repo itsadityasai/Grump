@@ -9,6 +9,9 @@ try:
 
     print()
 
+    if len(argv) == 1:
+        argv.append('--help')
+
     if argv[1] in ['--help', 'help', '-h']:
         print("""
 
@@ -26,7 +29,7 @@ try:
 
     class hash:
         hash = argv[1]
-        type = argv[2]
+        type = argv[2].lower()
 
     class stats:
         tried = 0
