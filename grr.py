@@ -37,6 +37,11 @@ try:
 
     for line in stdin:
 
+        if '--skip' in argv:
+            if stats.tried < int(argv[argv.index('--skip') + 1]):
+                stats.tried += 1
+                continue
+
         stats.tried += 1
         testKey = line.replace('\n', '')
 

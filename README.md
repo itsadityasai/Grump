@@ -3,7 +3,7 @@ Battery sensitive hash cracker.
 
 ---
 
-# Prerequisites 
+# Prerequisites
 
 You will need <a href='https://www.python.org/'>Python</a> installed, along with pip, python's in built package manager. You can install it using the python installer.
 
@@ -12,7 +12,7 @@ After installation of python, you will need to install the following modules:
   - colorama
   - psutil
   - hashlib
-  
+
 To install these, run:
 
 ``` pip install colorama psutil hashlib ```
@@ -37,7 +37,7 @@ You can run ```grr.py --help``` to get a brief idea of what to do.
 
         Format : printprogram wordlist | grr.py hash type
         Example : cat list.txt | grr.py 900150983cd24fb0d6963f7d28e17f72 md5
-          
+
 ```
 
 ## Supplying passwords to try
@@ -53,15 +53,47 @@ You needn't supply a wordlist. Any pipe will do. You can even try one password l
 Supported hash types are:
 
   - md5
-  - sha1 
-  - sha256 
-  - sha384 
+  - sha1
+  - sha256
+  - sha384
   - sha512
-  
+
 
 ## Saving progress
 
-There is no inbuilt method to save progress. However, you can use <a href='http://www.openwall.com/john/'>John The Ripper</a> in the following manner.
+### Using --skip
+
+*Before you jump in, let me just say that crunch is a wordlist generator, it is the program that is piping output in this scenario. The same logic applies if you're using `type wordlist.txt` or any other password supply method.*
+
+Say you run this command and get an output like this:
+
+```
+
+crunch.exe 1 10 abcdefghijk | grr.py 5d41402abc4b2a76b9719d911017c592 md5
+
+300000K tries
+400000K tries
+..
+1000000K tries
+
+
+```
+
+And then for whatever reason, you have to stop the program. Just make note of the command you used and the number of tries done (so in this case, the number of tries is 1000000K).
+
+The next time you start Grr, you would run a command like this:
+
+``` [original pipe command] | grr.py [same hash] [same hash type] --skip [tries complete in last session] ```
+
+To continue with the previous example, you would run:
+
+``` crunch.exe 1 10 abcdefghijk | grr.py 5d41402abc4b2a76b9719d911017c592 md5 --skip 1000000000 ```
+
+Note that you must enter the entire integer value. (So, not 1000000K, but 1000000000.)
+
+### Using JTR
+
+You can use <a href='http://www.openwall.com/john/'>John The Ripper</a> in the following manner to save progress.
 
 ``` john --session=foo --wordlist="path/to/your/wordlist" --stdout | grr.py hash type ```
 
@@ -78,4 +110,3 @@ Go ahead. GitHub offers lots of features for this. Just make sure you read <a hr
 # License
 
 This code is offered under <a href='https://github.com/Mate0xz/Grr/blob/main/LICENSE'>this license</a>. By using this software you agree to abide by it.
-
