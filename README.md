@@ -104,9 +104,9 @@ To restore the session, run ``` john --restore=foo  | grr.py hash type ```. Note
 
 # Contributing
 
-Go ahead. GitHub offers lots of features for this. Just make sure you read <a href='https://github.com/Mate0xz/Grr/blob/main/LICENSE'>the license</a> first.
+Go ahead. GitHub offers lots of features for this. Just make sure you read <a href='https://github.com/wolfrust/Grr/blob/main/LICENSE'>the license</a> first.
 
 
 # License
 
-This code is offered under <a href='https://github.com/Mate0xz/Grr/blob/main/LICENSE'>this license</a>. By using this software you agree to abide by it.
+This code is offered under <a href='https://github.com/wolfrust/Grr/blob/main/LICENSE'>this license</a>. By using this software you agree to abide by it.
