@@ -31,7 +31,7 @@ You can run ```grr.py --help``` to get a brief idea of what to do.
 ```
 
         Grr - A battery sensitive hash cracker.
-        Made by Neptune (github.com/wolfrust/).
+        Made by clocked07 (github.com/clocked07/).
 
         See README.md for detailed instructions.
 
