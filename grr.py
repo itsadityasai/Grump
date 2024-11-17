@@ -16,7 +16,7 @@ try:
         print("""
 
         Grr - A battery sensitive hash cracker.
-        Made by Neptune (github.com/wolfrust/).
+        Made by clocked07 (github.com/clocked07/).
 
         See README.md for detailed instructions.
 
