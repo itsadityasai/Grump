@@ -5,6 +5,7 @@ try:
     from time import sleep
     from sys import exit as die
     from colorama import Fore, Style, init
+    import unicodedata
     init()
 
     print()
@@ -35,7 +36,7 @@ try:
         tried = 0
         errors = 0
 
-    for line in stdin:
+    for line in stdin.buffer:
 
         if '--skip' in argv:
             if stats.tried < int(argv[argv.index('--skip') + 1]):
@@ -43,7 +44,18 @@ try:
                 continue
 
         stats.tried += 1
-        testKey = line.replace('\n', '')
+        try:
+            # Decode and normalize the input line
+            line = line.decode('utf-8', errors='replace')  # Replace invalid bytes
+            line = unicodedata.normalize('NFC', line.strip())  # Normalize Unicode
+            testKey = line
+            testKeyEncoded = testKey.encode('utf-8')  # Encode back for hashing
+
+        except UnicodeEncodeError:
+            stats.errors += 1
+            stats.tried -= 1
+            continue
+
 
         if stats.tried % 100000 == 0:
             print(f"{Fore.GREEN}{int(stats.tried / 1000)}K tries, {Fore.RED}{stats.errors / 1000}K errors {Style.RESET_ALL}")
@@ -56,13 +68,6 @@ try:
                     if battery().power_plugged:
                         print(f"{Fore.GREEN}Plugged in.. Resuming {Style.RESET_ALL}")
                         break
-        
-        try:
-            testKeyEncoded = testKey.encode()
-        except UnicodeEncodeError:
-
-            stats.errors += 1
-            stats.tried -= 1
 
         if hash.type == 'md5':
             if (md5(testKeyEncoded).hexdigest() == hash.hash):
