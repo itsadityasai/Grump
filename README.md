@@ -12,11 +12,11 @@ After installation of python, you will need to install the following modules:
 
 - colorama
 - psutil
-- hashlib
+- unicodedata
 
 To install these, run:
 
-`pip install colorama psutil hashlib`
+`pip install colorama psutil unicodedata`
 
 Once that's done, all you have to do is run `grump.py` . More on that below.
 
