@@ -46,7 +46,7 @@ try:
         testKey = line.replace('\n', '')
 
         if stats.tried % 100000 == 0:
-            print(f"{Fore.GREEN}{stats.tried / 1000}K tries, {Fore.RED}{stats.errors / 1000}K errors {Style.RESET_ALL}")
+            print(f"{Fore.GREEN}{int(stats.tried / 1000)}K tries, {Fore.RED}{stats.errors / 1000}K errors {Style.RESET_ALL}")
 
         if stats.tried % 1000000 == 0:
             if not battery().power_plugged:
