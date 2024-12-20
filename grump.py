@@ -91,4 +91,4 @@ try:
 
 
 except KeyboardInterrupt:
-    print(f"{Fore.RED}Interrupted.. Exiting with {stats.tried} tries and {stats.errors} errors {Style.RESET_ALL}")
+    print(f"{Fore.RED}Interrupted.. Exiting with {stats.tried} tries and {stats.errors} errors. {Style.RESET_ALL}")
