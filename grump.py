@@ -20,8 +20,8 @@ try:
 
         See README.md for detailed instructions.
 
-        Format : grump.py hash type
-        Example : grump.py 900150983cd24fb0d6963f7d28e17f72 md5
+        Format : printprogram wordlist | grump.py hash type
+        Example : cat list.txt | grump.py 900150983cd24fb0d6963f7d28e17f72 md5
 
 
         """)
