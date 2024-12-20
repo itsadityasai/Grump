@@ -58,42 +58,42 @@ try:
 
 
         if stats.tried % 100000 == 0:
-            print(f"{Fore.GREEN}{int(stats.tried / 1000)}K tries, {Fore.RED}{stats.errors / 1000}K errors {Style.RESET_ALL}")
+            print(f"{Fore.GREEN}[INFO] {int(stats.tried / 1000)}K tries, {Fore.RED}{stats.errors / 1000}K errors {Style.RESET_ALL}")
 
         if stats.tried % 1000000 == 0:
             if not battery().power_plugged:
-                print(f"{Fore.YELLOW}On battery power.. Pausing {Style.RESET_ALL}")
+                print(f"{Fore.YELLOW}[STATUS] On battery power.. Pausing {Style.RESET_ALL}")
                 while True:
-                    sleep(60)
+                    sleep(5)
                     if battery().power_plugged:
-                        print(f"{Fore.GREEN}Plugged in.. Resuming {Style.RESET_ALL}")
+                        print(f"{Fore.YELLOW}[STATUS] Plugged in.. Resuming {Style.RESET_ALL}")
                         break
 
         if hash.type == 'md5':
             if (md5(testKeyEncoded).hexdigest() == hash.hash):
                 print(f"\n{Fore.YELLOW}MD5({Fore.BLUE}{testKey}{Fore.YELLOW}){Fore.YELLOW} = {Fore.YELLOW}{hash.hash}{Style.RESET_ALL}\n")
-                die()
+                break
         elif hash.type == 'sha1':
             if (sha1(testKeyEncoded).hexdigest() == hash.hash):
                 print(f"\n{Fore.YELLOW}SHA1({Fore.BLUE}{testKey}{Fore.YELLOW}){Fore.YELLOW} = {Fore.YELLOW}{hash.hash}{Style.RESET_ALL}\n")
-                die()
+                break
         elif hash.type == 'sha256':
             if (sha256(testKeyEncoded).hexdigest() == hash.hash):
                 print(f"\n{Fore.YELLOW}SHA256({Fore.BLUE}{testKey}{Fore.YELLOW}){Fore.YELLOW} = {Fore.YELLOW}{hash.hash}{Style.RESET_ALL}\n")
-                die()
+                break
         elif hash.type == 'sha384':
             if (sha384(testKeyEncoded).hexdigest() == hash.hash):
                 print(f"\n{Fore.YELLOW}SHA384({Fore.BLUE}{testKey}{Fore.YELLOW}){Fore.YELLOW} = {Fore.YELLOW}{hash.hash}{Style.RESET_ALL}\n")
-                die()
+                break
         elif hash.type == 'sha512':
             if (sha512(testKeyEncoded).hexdigest() == hash.hash):
                 print(f"\n{Fore.YELLOW}SHA512({Fore.BLUE}{testKey}{Fore.YELLOW}){Fore.YELLOW} = {Fore.YELLOW}{hash.hash}{Style.RESET_ALL}\n")
-                die()
+                break
         else:
             print(f"{Fore.RED}Invalid hash type. Please see README.md.\n")
             die()
 
 
-
+    print(f"{Fore.GREEN}[FINISHED] Checked {stats.tried} keys with {stats.errors} errors. {Style.RESET_ALL}")
 except KeyboardInterrupt:
     print(f"{Fore.RED}Interrupted.. Exiting with {stats.tried} tries and {stats.errors} errors. {Style.RESET_ALL}")
