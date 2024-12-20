@@ -56,37 +56,39 @@ try:
                     if battery().power_plugged:
                         print(f"{Fore.GREEN}Plugged in.. Resuming {Style.RESET_ALL}")
                         break
-
+        
         try:
-
-            if hash.type == 'md5':
-                if (md5(testKey.encode()).hexdigest() == hash.hash):
-                    print(f"\n{Fore.YELLOW}MD5({Fore.BLUE}{testKey}{Fore.YELLOW}){Fore.YELLOW} = {Fore.YELLOW}{hash.hash}{Style.RESET_ALL}\n")
-                    die()
-            elif hash.type == 'sha1':
-                if (sha1(testKey.encode()).hexdigest() == hash.hash):
-                    print(f"\n{Fore.YELLOW}SHA1({Fore.BLUE}{testKey}{Fore.YELLOW}){Fore.YELLOW} = {Fore.YELLOW}{hash.hash}{Style.RESET_ALL}\n")
-                    die()
-            elif hash.type == 'sha256':
-                if (sha256(testKey.encode()).hexdigest() == hash.hash):
-                    print(f"\n{Fore.YELLOW}SHA256({Fore.BLUE}{testKey}{Fore.YELLOW}){Fore.YELLOW} = {Fore.YELLOW}{hash.hash}{Style.RESET_ALL}\n")
-                    die()
-            elif hash.type == 'sha384':
-                if (sha384(testKey.encode()).hexdigest() == hash.hash):
-                    print(f"\n{Fore.YELLOW}SHA384({Fore.BLUE}{testKey}{Fore.YELLOW}){Fore.YELLOW} = {Fore.YELLOW}{hash.hash}{Style.RESET_ALL}\n")
-                    die()
-            elif hash.type == 'sha512':
-                if (sha512(testKey.encode()).hexdigest() == hash.hash):
-                    print(f"\n{Fore.YELLOW}SHA512({Fore.BLUE}{testKey}{Fore.YELLOW}){Fore.YELLOW} = {Fore.YELLOW}{hash.hash}{Style.RESET_ALL}\n")
-                    die()
-            else:
-                print(f"{Fore.RED}Invalid hash type. Please see README.md.\n")
-                die()
-
+            testKeyEncoded = testKey.encode()
         except UnicodeEncodeError:
 
             stats.errors += 1
             stats.tried -= 1
+
+        if hash.type == 'md5':
+            if (md5(testKeyEncoded).hexdigest() == hash.hash):
+                print(f"\n{Fore.YELLOW}MD5({Fore.BLUE}{testKey}{Fore.YELLOW}){Fore.YELLOW} = {Fore.YELLOW}{hash.hash}{Style.RESET_ALL}\n")
+                die()
+        elif hash.type == 'sha1':
+            if (sha1(testKeyEncoded).hexdigest() == hash.hash):
+                print(f"\n{Fore.YELLOW}SHA1({Fore.BLUE}{testKey}{Fore.YELLOW}){Fore.YELLOW} = {Fore.YELLOW}{hash.hash}{Style.RESET_ALL}\n")
+                die()
+        elif hash.type == 'sha256':
+            if (sha256(testKeyEncoded).hexdigest() == hash.hash):
+                print(f"\n{Fore.YELLOW}SHA256({Fore.BLUE}{testKey}{Fore.YELLOW}){Fore.YELLOW} = {Fore.YELLOW}{hash.hash}{Style.RESET_ALL}\n")
+                die()
+        elif hash.type == 'sha384':
+            if (sha384(testKeyEncoded).hexdigest() == hash.hash):
+                print(f"\n{Fore.YELLOW}SHA384({Fore.BLUE}{testKey}{Fore.YELLOW}){Fore.YELLOW} = {Fore.YELLOW}{hash.hash}{Style.RESET_ALL}\n")
+                die()
+        elif hash.type == 'sha512':
+            if (sha512(testKeyEncoded).hexdigest() == hash.hash):
+                print(f"\n{Fore.YELLOW}SHA512({Fore.BLUE}{testKey}{Fore.YELLOW}){Fore.YELLOW} = {Fore.YELLOW}{hash.hash}{Style.RESET_ALL}\n")
+                die()
+        else:
+            print(f"{Fore.RED}Invalid hash type. Please see README.md.\n")
+            die()
+
+
 
 except KeyboardInterrupt:
     print(f"{Fore.RED}Interrupted.. Exiting with {stats.tried} tries and {stats.errors} errors {Style.RESET_ALL}")
