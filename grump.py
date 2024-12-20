@@ -80,7 +80,7 @@ try:
                     print(f"\n{Fore.YELLOW}SHA512({Fore.BLUE}{testKey}{Fore.YELLOW}){Fore.YELLOW} = {Fore.YELLOW}{hash.hash}{Style.RESET_ALL}\n")
                     die()
             else:
-                print(f"{Fore.RED}Invalid hash type. Please see README.md\n")
+                print(f"{Fore.RED}Invalid hash type. Please see README.md.\n")
                 die()
 
         except UnicodeEncodeError:
