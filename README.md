@@ -42,10 +42,37 @@ You can run `grump.py --help` to get a brief idea of what to do.
 
 ## Supplying passwords to try
 
-Grump only supports piped input. Take a look at the example above.
+**Grump only supports piped input.**
+
+Syntax:
+
+```
+cat list.txt | grump.py 900150983cd24fb0d6963f7d28e17f72 md5
+```
 
 Replace `list.txt` with your wordlist's path. If you're using Windows without Cygwin, then use `type` instead of `cat`.
-You needn't supply a wordlist. Any pipe will do. You can even try one password like this : `echo p@sswd | grump.py 900150983cd24fb0d6963f7d28e17f72 md5`
+You needn't supply a wordlist. Any pipe will do. You can even try one password like this :
+
+```
+echo p@sswd | grump.py 900150983cd24fb0d6963f7d28e17f72 md5
+```
+
+You could even run
+
+```
+grump.py 900150983cd24fb0d6963f7d28e17f72 md5
+```
+
+and type the inputs one by one:
+
+```
+> grump.py 900150983cd24fb0d6963f7d28e17f72 md5
+
+bcd
+abc
+
+MD5(abc) = 900150983cd24fb0d6963f7d28e17f72
+```
 
 ## Hash types
 
