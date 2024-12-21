@@ -18,7 +18,7 @@ To install these, run:
 
 `pip install colorama psutil unicodedata`
 
-Once that's done, all you have to do is run `grump.py` . More on that below.
+Once that's done, all you have to do is run `grump.py`. More on that below.
 
 ---
 
@@ -88,7 +88,7 @@ Supported hash types are:
 
 ### Using --skip
 
-_Before you jump in, let me just say that crunch is a wordlist generator, it is the program that is piping output in this scenario. The same logic applies if you're using `type wordlist.txt` or any other password supply method._
+_In the following examples, please note that crunch is a wordlist generator that is piping output in this scenario. The same logic applies if you're using `type wordlist.txt` or any other password supply method._
 
 Say you run this command and get an output like this:
 
