@@ -17,7 +17,7 @@ try:
         print("""
 
         Grump - A battery sensitive hash cracker.
-        Made by clocked07 (github.com/clocked07/).
+        Made by @itsadityasai (github.com/itsadityasai/).
 
         See README.md for detailed instructions.
 

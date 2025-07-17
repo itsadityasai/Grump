@@ -31,7 +31,7 @@ You can run `grump.py --help` to get a brief idea of what to do.
 ```
 
         Grump - A battery sensitive hash cracker.
-        Made by clocked07 (github.com/clocked07/).
+        Made by @itsadityasai (github.com/itsadityasai/).
 
         See README.md for detailed instructions.
 
@@ -128,8 +128,8 @@ To restore the session, run `john --restore=foo  | grump.py hash type`. Note tha
 
 # Contributing
 
-Go ahead. GitHub offers lots of features for this. Just make sure you read <a href='https://github.com/clocked07/Grump/blob/main/LICENSE'>the license</a> first.
+Go ahead. GitHub offers lots of features for this. Just make sure you read <a href='https://github.com/itsadityasai/Grump/blob/main/LICENSE'>the license</a> first.
 
 # License
 
-This code is offered under <a href='https://github.com/clocked07/Grump/blob/main/LICENSE'>this license</a>. By using this software you agree to abide by it.
+This code is offered under <a href='https://github.com/itsadityasai/Grump/blob/main/LICENSE'>this license</a>. By using this software you agree to abide by it.
